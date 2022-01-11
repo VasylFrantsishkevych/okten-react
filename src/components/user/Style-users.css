@@ -1,0 +1,20 @@
+.user__card {
+    width: 98%;
+    box-shadow: 0 0 5px 0 grey;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.user__card span {
+    font-size: 20px;
+    font-weight: bold;
+}
+.user__card h1, h2, h3 {
+    margin: 4px;
+}
+.users {
+    width: 22%;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    padding: 10px;
+}

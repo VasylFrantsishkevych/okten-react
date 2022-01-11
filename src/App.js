@@ -1,10 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+import Users from "./components/user/Users";
+
+import Posts from "./components/post/Posts";
+import Comments from "./components/comment/Comments";
 
 function App() {
   return (
-    <div className="App">
-
+    <div>
+      <div className={'users__posts'}>
+          <Users/>
+          <Posts/>
+      </div>
+      <Comments/>
     </div>
   );
 }
