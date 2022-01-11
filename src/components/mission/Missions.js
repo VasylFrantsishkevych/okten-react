@@ -8,7 +8,7 @@ const Missions = () => {
     useEffect( () => {
         fetch('https://api.spacexdata.com/v3/launches/')
             .then(response => response.json())
-            .then(mission => setMissions(mission))
+            .then(mission => setMissions(mission.filter(item => item.launch_year !== '2020')));
     },[]);
     return (
         <>
