@@ -1,0 +1,22 @@
+.mission__card {
+    width: 48%;
+    display: flex;
+    border: 2px solid cadetblue;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 10px;
+
+}
+.mission__card_name {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mission__card_img {
+    width: 50%;
+}
+.mission__card_img img {
+    height: 200px;
+}

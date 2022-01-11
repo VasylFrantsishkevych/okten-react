@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Missions from "./components/mission/Missions";
 
 function App() {
   return (
-    <div className="App">
-
+    <div className="container">
+        <Missions/>
     </div>
   );
 }
