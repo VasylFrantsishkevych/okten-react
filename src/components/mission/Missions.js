@@ -1,14 +1,16 @@
 import {useEffect, useState} from "react";
+
 import Mission from "./Mission";
+
+import {getMissions} from "../services/api";
 
 
 const Missions = () => {
     const [missions, setMissions] = useState([]);
 
     useEffect( () => {
-        fetch('https://api.spacexdata.com/v3/launches/')
-            .then(response => response.json())
-            .then(mission => setMissions(mission.filter(mission => mission.launch_year !== '2020')));
+        getMissions().then(mission =>
+            setMissions(mission.filter(missionYear => missionYear.launch_year !== '2020')));
     },[]);
     return (
         <>
