@@ -1,16 +1,14 @@
-import './Comment.css'
-
-import Comment from "./Comment";
-
 import {useEffect, useState} from "react";
+
+import './Comment.css'
+import Comment from "./Comment";
+import {getComponents} from "../services/api";
 
 const Comments = () => {
     const [comments, setComments] = useState([]);
 
     useEffect( () => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(response => response.json())
-            .then(comment => setComments(comment))
+        getComponents().then(comment => setComments(comment))
     },[])
 
     return (

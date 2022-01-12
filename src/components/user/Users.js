@@ -1,16 +1,14 @@
 import {useEffect, useState} from 'react';
 
 import User from "./User";
-
 import './Style-users.css'
+import {getUsers} from "../services/api";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
 
     useEffect( () => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(user => setUsers(user))
+        getUsers().then(user => setUsers(user))
     },[])
     return (
         <div className={'users'}>
