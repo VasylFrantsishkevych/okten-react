@@ -7,20 +7,17 @@ const Missions = () => {
     const [missions, setMissions] = useState([]);
 
     useEffect( () => {
-        getMissions().then(mission =>
-            setMissions(mission));
+        getMissions().then(mission => {
+            const missionFilter = mission.filter(missionYear => missionYear.launch_year !== '2020');
+            setMissions(missionFilter)
+        });
     },[]);
-
-    const missionFilter = missions.filter(missionYear => missionYear.launch_year !== '2020');
 
     return (
         <>
             {
-                missionFilter.map(value => <Mission
-                    key={value.flight_number}
-                    mission_name={value.mission_name}
-                    launch_year={value.launch_year}
-                    img={value.links.mission_patch_small}/>)
+                missions.map(value => <Mission key={value.flight_number}
+                                               item={value}/>)
             }
         </>
     );
