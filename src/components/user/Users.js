@@ -12,9 +12,7 @@ const Users = () => {
     },[])
     return (
         <div className={'users'}>
-            {users.map(value => <User key={value.id} id={value.id} name={value.name} username={value.username} email={value.email}
-            street={value.address.street} city={value.address.city} zipcode={value.address.zipcode} lat={value.address.geo.lat}
-            lng={value.address.geo.lng}/>)}
+            {users.map(value => <User key={value.id} item={value}/>)}
         </div>
     );
 };

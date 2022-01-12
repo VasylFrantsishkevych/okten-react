@@ -2,7 +2,7 @@ import './Style-users.css'
 
 const User = (props) => {
 
-    let {id, name, username, email, street, city, zipcode, lat, lng} = props;
+    let {item: {id, name, username, email, address: {street, city, zipcode, geo: {lat, lng}}}} = props;
 
     return (
         <div className={'user__card'}>
