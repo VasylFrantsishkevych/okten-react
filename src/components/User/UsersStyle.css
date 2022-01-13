@@ -1,0 +1,36 @@
+.users {
+
+}
+.user__card {
+    display: flex;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.connection {
+    display: flex;
+    justify-content: space-around;
+}
+.address {
+    display: flex;
+    justify-content: space-around;
+}
+.user__details {
+    width: 70%;
+    border: 2px solid cadetblue;
+    padding: 10px;
+    margin-left: -2px;
+    box-sizing: border-box;
+}
+.user__details span {
+    font-weight: bold;
+}
+.user__details h2 {
+    text-align: center;
+}
+.user__name {
+    padding: 10px;
+    width: 30%;
+    text-align: center;
+    border: 2px solid cadetblue;
+    box-sizing: border-box;
+}
