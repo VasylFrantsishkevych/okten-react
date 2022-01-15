@@ -34,3 +34,12 @@
     border: 2px solid cadetblue;
     box-sizing: border-box;
 }
+.post__container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 5px 0 5px 0;
+    row-gap: 10px;
+}

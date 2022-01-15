@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 
-import UserDetails from "./UserDetails";
+import UserDetails from "../UserDetails/UserDetails";
 import {userServices} from "../../services/user.service";
 import {postsServices} from "../../services/post.service";
-import Posts from "../post/Posts";
+import './UsersStyle.css'
+import Post from "../post/Post";
+
+
 
 const User = (props) => {
     let {item: {id, name}} = props;
@@ -15,15 +18,15 @@ const User = (props) => {
             .then(value => setUser(value))
         }
 
-    let [post, setPost] = useState(null)
+    let [post, setPost] = useState([])
 
-    const getPostId = (userId) => {
-        postsServices.getPosts(userId)
+    const getPostId = (id) => {
+        postsServices.getPost(id)
             .then(value =>{
                     setPost(value)
                 })
     }
-
+    console.log(post)
     return (
         <>
             <div className={'user__card'}>
@@ -33,7 +36,11 @@ const User = (props) => {
                 </div>
                 {user && <UserDetails item={user} getPostId={getPostId}/>}
             </div>
-            {post && <Posts/>}
+            <div className={'post__container'}>
+            {
+                post.map(value => <Post key={value.id} userId={value.userId} title={value.title} body={value.body}/>)
+            }
+            </div>
         </>
     );
 };

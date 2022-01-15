@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './UsersStyle.css'
+import '../User/UsersStyle.css'
 
 
 const UserDetails = (props) => {
