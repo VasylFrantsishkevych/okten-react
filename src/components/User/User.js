@@ -26,7 +26,6 @@ const User = (props) => {
                     setPost(value)
                 })
     }
-    console.log(post)
     return (
         <>
             <div className={'user__card'}>
