@@ -1,0 +1,15 @@
+.header {
+    min-height: 70px;
+    background: cadetblue;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.header a {
+    font-size: 30px;
+    text-decoration: none;
+}
+.header a[class='active'] {
+    color: red;
+}
