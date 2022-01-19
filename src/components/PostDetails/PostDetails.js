@@ -11,7 +11,7 @@ const PostDetails = ({post}) => {
                 <p>{body}</p>
             </div>
             <div className={'comments__button'}>
-                <Link to={`/posts/${id}/comments`}><button>Comments</button></Link>
+                <Link to={`comments`}><button>Comments</button></Link>
             </div>
             <Outlet/>
         </>

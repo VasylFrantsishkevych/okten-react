@@ -1,0 +1,14 @@
+.album__card {
+    box-shadow: 0 0 5px 0 cadetblue;
+    width: 49%;
+    margin: 0 auto;
+    padding: 0 3px;
+    box-sizing: border-box;
+}
+.album__button {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.album__button button {
+    width: 100px;
+}

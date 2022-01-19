@@ -1,0 +1,10 @@
+.albums {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+h1 {
+    text-align: center;
+
+}

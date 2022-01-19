@@ -39,7 +39,7 @@ const UserDetails = (props) => {
                 </ul>
             </div>
             <div className={'posts__button'}>
-                <Link to={`/users/${id}/posts`}><button>Posts</button></Link>
+                <Link to={`posts`}><button>Posts</button></Link>
             </div>
         </div>
     );

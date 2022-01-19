@@ -2,7 +2,16 @@ import {Route, Routes} from "react-router-dom";
 
 import './App.css';
 import Layout from "./components/Layout/Layout";
-import {CommentsPostIdPage, PostDetailsPage, PostsPage, PostUserIdPage, UserDetailsPage, UsersPage} from "./pages";
+import {
+    AlbumsPage,
+    CommentsPostIdPage,
+    PhotosPage,
+    PostDetailsPage,
+    PostsPage,
+    PostUserIdPage,
+    UserDetailsPage,
+    UsersPage
+} from "./pages";
 
 
 function App() {
@@ -12,12 +21,14 @@ function App() {
           <Route path={'/'} element={<Layout/>}>
               <Route path={'users'} element={<UsersPage/>}>
                   <Route path={':id'} element={<UserDetailsPage/>}>
-                    <Route path={'/users/:id/posts'} element={<PostUserIdPage/>}/>
+                    <Route path={'posts'} element={<PostUserIdPage/>}/>
                   </Route>
+                  <Route path={':id/albums'} element={<AlbumsPage/>}/>
               </Route>
+              <Route path={'/photos'} element={<PhotosPage/>}/>
               <Route path={'posts'} element={<PostsPage/>}>
                   <Route path={':id'} element={<PostDetailsPage/>}>
-                      <Route path={'/posts/:id/comments'} element={<CommentsPostIdPage/>}/>
+                      <Route path={'comments'} element={<CommentsPostIdPage/>}/>
                   </Route>
               </Route>
           </Route>
