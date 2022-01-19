@@ -4,8 +4,7 @@ import './App.css';
 import Layout from "./components/Layout/Layout";
 import {
     AlbumsPage,
-    CommentsPostIdPage,
-    PhotosPage,
+    CommentsPostIdPage, PhotosPage,
     PostDetailsPage,
     PostsPage,
     PostUserIdPage,
@@ -23,9 +22,10 @@ function App() {
                   <Route path={':id'} element={<UserDetailsPage/>}>
                     <Route path={'posts'} element={<PostUserIdPage/>}/>
                   </Route>
-                  <Route path={':id/albums'} element={<AlbumsPage/>}/>
+                  <Route path={':id/albums'} element={<AlbumsPage/>}>
+                      <Route path={':albumId/photos'} element={<PhotosPage/>}/>
+                  </Route>
               </Route>
-              <Route path={'/photos'} element={<PhotosPage/>}/>
               <Route path={'posts'} element={<PostsPage/>}>
                   <Route path={':id'} element={<PostDetailsPage/>}>
                       <Route path={'comments'} element={<CommentsPostIdPage/>}/>

@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
+import {Outlet, useParams} from "react-router-dom";
 
 import './AlbymsPage.css'
 import {userService} from "../../services/user.servise";
-import {useParams} from "react-router-dom";
 import Album from "../../components/Album/Album";
 
 const AlbumsPage = () => {
@@ -21,6 +21,7 @@ const AlbumsPage = () => {
                     albums.map(album => <Album key={album.id} album={album}/>)
                 }
             </div>
+            <Outlet/>
         </>
     );
 };

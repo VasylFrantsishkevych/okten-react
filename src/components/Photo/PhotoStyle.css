@@ -1,0 +1,7 @@
+.photo__card {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid cadetblue;
+    margin: 10px 0;
+    padding-left: 10px;
+}
