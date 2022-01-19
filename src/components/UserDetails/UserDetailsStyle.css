@@ -1,0 +1,21 @@
+.name {
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+}
+.user__contacts {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+}
+.user__address {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+}
+.posts__button {
+    text-align: center;
+    border-bottom: 2px solid cadetblue;
+    margin: 0 -5px;
+    padding-bottom: 10px;
+}

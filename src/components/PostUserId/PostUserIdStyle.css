@@ -1,0 +1,10 @@
+.post__card {
+    box-shadow: 0 0 5px 0 cadetblue;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+.post__card h3 {
+    margin: 5px 0;
+    text-align: center;
+}

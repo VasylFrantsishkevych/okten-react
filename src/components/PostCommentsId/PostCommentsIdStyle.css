@@ -1,0 +1,10 @@
+.comments__card {
+    box-shadow: 0 0 5px 0 cadetblue;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.comments__card h2 {
+    margin: 5px 0;
+    text-align: center;
+}

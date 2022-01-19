@@ -1,10 +1,9 @@
 import {Route, Routes} from "react-router-dom";
 
 import './App.css';
-import UsersPage from "./pages/UsersPage/UsersPage";
-import PostsPage from "./pages/PostsPage/PostsPage";
 import Layout from "./components/Layout/Layout";
-import UserDetailsPage from "./pages/UserDetailsPage/UserDetailsPage";
+import {CommentsPostIdPage, PostDetailsPage, PostsPage, PostUserIdPage, UserDetailsPage, UsersPage} from "./pages";
+
 
 function App() {
   return (
@@ -12,9 +11,15 @@ function App() {
       <Routes>
           <Route path={'/'} element={<Layout/>}>
               <Route path={'users'} element={<UsersPage/>}>
-                <Route path={':id'} element={<UserDetailsPage/>}/>
+                  <Route path={':id'} element={<UserDetailsPage/>}>
+                    <Route path={'/users/:id/posts'} element={<PostUserIdPage/>}/>
+                  </Route>
               </Route>
-              <Route path={'posts'} element={<PostsPage/>}/>
+              <Route path={'posts'} element={<PostsPage/>}>
+                  <Route path={':id'} element={<PostDetailsPage/>}>
+                      <Route path={'/posts/:id/comments'} element={<CommentsPostIdPage/>}/>
+                  </Route>
+              </Route>
           </Route>
       </Routes>
     </>

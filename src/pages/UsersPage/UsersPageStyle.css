@@ -1,0 +1,20 @@
+.users {
+    width: 100%;
+    display: flex;
+    border: 2px solid cadetblue;
+    box-sizing: border-box;
+}
+.user__name {
+    border-right: 2px solid cadetblue;
+    padding: 5px;
+    width: 20%;
+}
+.user__name h1 {
+    border-bottom: 2px solid cadetblue;
+    margin: 0 -5px 0 -5px;
+    text-align: center;
+}
+.user__details {
+    padding: 5px;
+    width: 80%;
+}

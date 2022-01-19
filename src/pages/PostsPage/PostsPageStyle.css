@@ -1,0 +1,23 @@
+.posts {
+    width: 100%;
+    display: flex;
+    border: 2px solid cadetblue;
+    box-sizing: border-box;
+}
+.posts__title {
+    width: 37%;
+    border-right: 2px solid cadetblue;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.posts__title h1 {
+    border-bottom: 2px solid cadetblue;
+    margin-left: -5px;
+    margin-right: -5px;
+    text-align: center;
+}
+.posts__details {
+    width: 63%;
+    box-sizing: border-box;
+    padding: 10px;
+}

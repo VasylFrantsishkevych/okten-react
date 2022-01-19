@@ -1,8 +1,8 @@
-import {useLocation, useParams} from "react-router-dom";
+import {Outlet, useLocation, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 
 import {userService} from "../../services/user.servise";
-import UserDetails from "../../components/UserDEtails/UserDetails";
+import UserDetails from "../../components/UserDetails/UserDetails";
 
 
 const UserDetailsPage = () => {
@@ -16,16 +16,17 @@ const UserDetailsPage = () => {
             return
         }
 
-        userService.getById(id).then(value => setUser([...value]))
-    },[user])
+        userService.getById(id).then(value => setUser({...value}))
+    },[state])
 
     return (
-        <div>
+        <>
             {
                 user && <UserDetails item={user}/>
             }
-        </div>
+            <Outlet/>
+        </>
     );
 };
 
-export default UserDetailsPage;
+export {UserDetailsPage};

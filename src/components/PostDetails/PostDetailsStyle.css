@@ -1,0 +1,9 @@
+.post__id {
+    text-align: center;
+}
+.comments__button {
+    text-align: center;
+    border-bottom: 2px solid cadetblue;
+    margin: 0 -10px 0 -10px;
+    padding-bottom: 10px;
+}
