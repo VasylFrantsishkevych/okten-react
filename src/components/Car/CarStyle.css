@@ -7,3 +7,6 @@
 .car__card h4 {
     margin: 3px;
 }
+.car__card button {
+    margin-bottom: 5px;
+}
