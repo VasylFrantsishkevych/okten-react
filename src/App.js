@@ -1,26 +1,27 @@
 import {useReducer} from "react";
 
 const reducer = (state, action) => {
-  if (action.type === 'inc'){
-    return {...state, count1: state.count1 + 1}
-  }if (action.type === 'dec'){
-    return {...state, count1: state.count1 - 1}
-  }if (action.type === 'reset'){
-    return {...state, count1: action.payload}
-  }if (action.type === 'inc2'){
-    return {...state, count2: state.count2 + 1}
-  }if (action.type === 'dec2'){
-    return {...state, count2: state.count2 - 1}
-  }if (action.type === 'reset2'){
-    return {...state, count2: action.payload}
-  }if (action.type === 'inc3'){
-    return {...state, count3: state.count3 + 1}
-  }if (action.type === 'dec3'){
-    return {...state, count3: state.count3 - 1}
-  }if (action.type === 'reset3'){
-    return {...state, count3: action.payload}
-  }else {
-    return state
+  switch (action.type){
+    case 'inc':
+      return {...state, count1: state.count1 + 1}
+    case 'dec':
+      return {...state, count1: state.count1 - 1}
+    case 'reset':
+      return {...state, count1: action.payload}
+    case 'inc2':
+      return {...state, count2: state.count2 + 1}
+    case 'dec2':
+      return {...state, count2: state.count2 -1}
+    case 'reset2':
+      return {...state, count2: action.payload}
+    case 'inc3':
+      return {...state, count3: state.count3 + 1}
+    case 'dec3':
+      return {...state, count3: state.count3 - 1}
+    case 'reset3':
+      return {...state, count3: action.payload}
+    default:
+      return state
   }
 }
 
