@@ -1,5 +1,11 @@
+import {useDispatch} from "react-redux";
 
-const Car = ({car:{id, model, price, year},getCarId}) => {
+import {deleteCar} from "../../store/car.slice";
+
+const Car = ({car:{id, model, price, year}}) => {
+
+    const dispatch = useDispatch();
+
     return (
         <div>
             <div>
@@ -7,7 +13,8 @@ const Car = ({car:{id, model, price, year},getCarId}) => {
                 <div>Price: {price}</div>
                 <div>Year: {year}</div>
             </div>
-            <button onClick={() => getCarId(id)}>Delete</button>
+            {/*передаємо id як обєкт в метод deleteCar*/}
+            <button onClick={() => dispatch(deleteCar({id}))}>Delete</button>
         </div>
     );
 };
