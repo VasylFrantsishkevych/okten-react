@@ -1,10 +1,12 @@
 export const reducer = (state, action) => {
     switch (action.type) {
-        case 'addCat':
-            return {...state, cats: [...state.cats, action.payload]}
-
-        case 'addDog':
-            return {...state, dogs: [...state.dogs, action.payload]}
+        case 'addCatAndDog':
+            if (action.target === 'cats'){
+                return {...state, cats: [...state.cats, action.payload]}
+            }else if (action.target === 'dogs'){
+                return {...state, dogs: [...state.dogs, action.payload]}
+            }
+        return state;
         case 'delete':
             if (action.target === 'cats'){
                 console.log(action.payload);

@@ -16,14 +16,14 @@ const Forms = () => {
     const saveCat = (e) => {
         e.preventDefault();
         const newCat = catValue.current.value;
-        dispatch({type: 'addCat', target: 'cats', payload: {name: newCat, id: new Date().getTime()}});
+        dispatch({type: 'addCatAndDog', target: 'cats', payload: {name: newCat, id: new Date().getTime()}});
         catValue.current.value = '';
     }
 
     const saveDog = (e) => {
         e.preventDefault();
         const newDog = dogValue.current.value;
-        dispatch({type: 'addDog', target: 'dogs', payload: {name: newDog, id: new Date().getTime()}});
+        dispatch({type: 'addCatAndDog', target: 'dogs', payload: {name: newDog, id: new Date().getTime()}});
         dogValue.current.value = '';
     }
 
