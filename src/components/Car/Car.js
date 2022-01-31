@@ -1,9 +1,9 @@
 import {useDispatch} from "react-redux";
 
-import {deleteCar} from "../../store/car.slice";
+import {createCar, deleteOneCar} from "../../store/car.slice";
 
-const Car = ({car:{id, model, price, year}}) => {
-
+const Car = ({car}) => {
+    const {id, model, price, year} = car;
     const dispatch = useDispatch();
 
     return (
@@ -14,7 +14,8 @@ const Car = ({car:{id, model, price, year}}) => {
                 <div>Year: {year}</div>
             </div>
             {/*передаємо id як обєкт в метод deleteCar*/}
-            <button onClick={() => dispatch(deleteCar({id}))}>Delete</button>
+            <button onClick={() => dispatch(deleteOneCar({id}))}>Delete</button>
+            <button onClick={() => dispatch(createCar(car))}>Update</button>
         </div>
     );
 };

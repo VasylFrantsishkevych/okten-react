@@ -1,23 +1,32 @@
 import {useForm} from "react-hook-form";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
-import {addCar} from "../../store/car.slice";
+import {createCar} from "../../store/car.slice";
+import {useEffect} from "react";
 
 const Form = () => {
-    const {handleSubmit, register, reset} = useForm();
+    const {cars: {id, model, price, year}} = useSelector(state => state['carReducer']);
+    const {handleSubmit, register, reset, setValue} = useForm();
     const dispatch = useDispatch();
-    //передаємо дані з форми в метод addCar
+
+    useEffect(() => {
+        console.log(model)
+        setValue('model', model)
+        setValue('price', price)
+        setValue('year', year)
+    },[id])
+    //передаємо дані з форми на константу createCar
     const submit = (data) => {
-        dispatch(addCar({data}))
+        dispatch(createCar({data}))
         reset()
     }
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <label>Model: <input type="text" {...register('model')}/></label>
-            <label>Price: <input type="text" {...register('price')}/></label>
-            <label>Year: <input type="text" {...register('year')}/></label>
-            <button>Save</button>
+            <label>Model: <input type="text" defaultValue={''} {...register('model')}/></label>
+            <label>Price: <input type="text" defaultValue={''} {...register('price')}/></label>
+            <label>Year: <input type="text" defaultValue={''} {...register('year')}/></label>
+            <button>{id?'Update':'Create'}</button>
         </form>
     );
 };
