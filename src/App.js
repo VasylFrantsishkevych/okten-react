@@ -2,26 +2,35 @@ import {useReducer} from "react";
 
 const reducer = (state, action) => {
   switch (action.type){
-    case 'inc':
-      return {...state, count1: state.count1 + 1}
-    case 'dec':
-      return {...state, count1: state.count1 - 1}
-    case 'reset':
-      return {...state, count1: action.payload}
-    case 'inc2':
-      return {...state, count2: state.count2 + 1}
-    case 'dec2':
-      return {...state, count2: state.count2 -1}
-    case 'reset2':
-      return {...state, count2: action.payload}
-    case 'inc3':
-      return {...state, count3: state.count3 + 1}
-    case 'dec3':
-      return {...state, count3: state.count3 - 1}
-    case 'reset3':
-      return {...state, count3: action.payload}
+    case 'count1':
+      if (action.target === 'inc'){
+        return {...state, count1: state.count1 + 1}
+      }else if (action.target === 'dec'){
+        return {...state, count1: state.count1 - 1}
+      }else if (action.target === 'reset'){
+        return {...state, count1: action.payload}
+      }
+      return state;
+    case 'count2':
+      if (action.target === 'inc'){
+        return {...state, count2: state.count2 + 1}
+      }else if (action.target === 'dec'){
+        return {...state, count2: state.count2 - 1}
+      }else if (action.target === 'reset'){
+        return {...state, count2: action.payload}
+      }
+      return state;
+    case 'count3':
+      if (action.target === 'inc'){
+        return {...state, count3: state.count3 + 1}
+      }else if (action.target === 'dec'){
+        return {...state, count3: state.count3 - 1}
+      }else if (action.target === 'reset'){
+        return {...state, count3: action.payload}
+      }
+      return state;
     default:
-      return state
+      throw new Error('Error')
   }
 }
 
@@ -33,21 +42,21 @@ function App() {
     <div>
       <div>
         <div>{state.count1}</div>
-        <button onClick={() => dispatch({type: 'inc'})}>INC</button>
-        <button onClick={() => dispatch({type: 'dec'})}>DEC</button>
-        <button onClick={() => dispatch({type: 'reset', payload: 0})}>RESET</button>
+        <button onClick={() => dispatch({type: 'count1', target: 'inc'})}>INC</button>
+        <button onClick={() => dispatch({type: 'count1', target: 'dec'})}>DEC</button>
+        <button onClick={() => dispatch({type: 'count1', target: 'reset', payload: 0})}>RESET</button>
       </div>
       <div>
         <div>{state.count2}</div>
-        <button onClick={() => dispatch({type: 'inc2'})}>INC</button>
-        <button onClick={() => dispatch({type: 'dec2'})}>DEC</button>
-        <button onClick={() => dispatch({type: 'reset2', payload: 10})}>RESET</button>
+        <button onClick={() => dispatch({type: 'count2', target: 'inc'})}>INC</button>
+        <button onClick={() => dispatch({type: 'count2', target: 'dec'})}>DEC</button>
+        <button onClick={() => dispatch({type: 'count2', target: 'reset', payload: 10})}>RESET</button>
       </div>
       <div>
         <div>{state.count3}</div>
-        <button onClick={() => dispatch({type: 'inc3'})}>INC</button>
-        <button onClick={() => dispatch({type: 'dec3'})}>DEC</button>
-        <button onClick={() => dispatch({type: 'reset3', payload: 20})}>RESET</button>
+        <button onClick={() => dispatch({type: 'count3', target: 'inc'})}>INC</button>
+        <button onClick={() => dispatch({type: 'count3', target: 'dec'})}>DEC</button>
+        <button onClick={() => dispatch({type: 'count3', target: 'reset', payload: 20})}>RESET</button>
       </div>
     </div>
   );
