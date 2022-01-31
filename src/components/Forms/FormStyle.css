@@ -5,7 +5,11 @@
     padding: 20px 0;
     border-bottom: 2px solid cadetblue;
 }
-.cat_and_dog {
+.wrap {
     display: flex;
     justify-content: space-around;
+}
+.dogs_and_cats{
+    width: 150px;
+    margin-top: 15px;
 }

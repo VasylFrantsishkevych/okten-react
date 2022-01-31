@@ -1,10 +1,10 @@
+import './DogStyle.css'
 
-
-const Dog = ({props}) => {
-    const {dog} = props;
+const Dog = ({dogs:{name, id}, deleteDog}) => {
     return (
-        <div>
-            <h3>{dog}</h3>
+        <div className={'dog'}>
+            <h3>{name}</h3>
+            <button onClick={() => deleteDog(id)}>Delete</button>
         </div>
     );
 };

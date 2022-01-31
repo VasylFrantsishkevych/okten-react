@@ -1,51 +1,60 @@
-import {useReducer, useState} from "react";
+import {useReducer, useRef} from "react";
 
 import './FormStyle.css'
-import Cat from "../Cat/Cat";
-import Dog from "../Dog/Dog";
+import {reducer} from "../Reducer/Reducer";
+import Cats from "../Cats/Cats";
+import Dogs from "../Dogs/Dogs";
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'animals':
-            return {...state, [action.field]: action.payload}
-    }
-    return state;
-}
-let arrAnimals = [];
 
 const Forms = () => {
 
-    const [state, dispatch] = useReducer(reducer, {cat: '', dog: ''});
+    const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
-    const save = (e) => {
+    const catValue = useRef();
+    const dogValue = useRef();
+
+    const saveCat = (e) => {
         e.preventDefault();
-        arrAnimals.push({state})
-        console.log(arrAnimals)
+        const newCat = catValue.current.value;
+        dispatch({type: 'addCat', target: 'cats', payload: {name: newCat, id: new Date().getTime()}});
+        catValue.current.value = '';
     }
 
-    const handler = (e) => {
-        dispatch({
-            type: 'animals',
-            field: e.target.name,
-            payload: e.target.value
-        })
+    const saveDog = (e) => {
+        e.preventDefault();
+        const newDog = dogValue.current.value;
+        dispatch({type: 'addDog', target: 'dogs', payload: {name: newDog, id: new Date().getTime()}});
+        dogValue.current.value = '';
     }
 
+   const deleteCat = (id) => {
+        dispatch({type: 'delete', target: 'cats', payload: {id}})
+   }
+
+    const deleteDog = (id) => {
+        dispatch({type: 'delete', target: 'dogs', payload: {id}})
+    }
+
+    console.log(state);
     return (
         <>
             <div className={'form'}>
-                <form onSubmit={save}>
-                    <label>Add Cat <input type="text" name={'cat'} value={state.cat} onChange={handler}/></label>
+                <form onSubmit={saveCat}>
+                    <label>Add Cat <input type="text"  name={'cat'} ref={catValue}/></label>
                     <button>Save</button>
                 </form>
-                <form onSubmit={save}>
-                    <label>Add Dog <input type="text" name={'dog'} value={state.dog} onChange={handler}/></label>
+                <form onSubmit={saveDog}>
+                    <label>Add Dog <input type="text" name={'dog'} ref={dogValue}/></label>
                     <button>Save</button>
                 </form>
             </div>
-            <div className={'cat_and_dog'}>
-                {/*{arrAnimals && <Cat props={state}/>}*/}
-                {/*{arrAnimals && <Dog props={state}/>}*/}
+            <div className={'wrap'}>
+                <div className={'dogs_and_cats'}>
+                    {state && <Cats state={state} deleteCat={deleteCat}/>}
+                </div>
+                <div className={'dogs_and_cats'}>
+                    {state && <Dogs state={state} deleteDog={deleteDog}/>}
+                </div>
             </div>
         </>
     );

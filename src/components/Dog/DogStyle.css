@@ -1,0 +1,8 @@
+.dog {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.dog h3 {
+    margin: 0;
+}

@@ -1,0 +1,8 @@
+.cat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.cat h3 {
+    margin: 0;
+}
