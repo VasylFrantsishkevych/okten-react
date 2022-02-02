@@ -1,0 +1,20 @@
+.post__card {
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 0 cadetblue;
+    width: 23%;
+    padding: 5px;
+}
+.post__card_id {
+    display: flex;
+    justify-content: space-around;
+}
+.post__card_id h3 {
+    margin: 7px 0;
+}
+.post__card h5 {
+    margin: 5px;
+    text-align: center;
+}
+.post__card p {
+    text-align: justify;
+}

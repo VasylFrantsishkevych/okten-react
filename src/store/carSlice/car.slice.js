@@ -1,6 +1,17 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import {carService} from "../services";
+import {carService} from "../../services/car.service";
+
+
+
+
+const   initialState = {
+     cars: [],
+     status: null,
+     error: null,
+     carUpdate: {}
+ }
+
 
 //отримую всі авто з серевера
 export const getAllCars = createAsyncThunk(
@@ -8,8 +19,7 @@ export const getAllCars = createAsyncThunk(
     async (_, {rejectWithValue}) =>{
 
         try {
-            const cars = await carService.getAll();
-            return cars;
+            return await carService.getAll();
         }catch (error){
             return rejectWithValue(error.message)
         }
@@ -29,18 +39,6 @@ export const createCar = createAsyncThunk(
     }
 )
 
-//оновлення даних
-export const updateOneCar = createAsyncThunk(
-    'carSlice/updateOneCar',
-    async ({data}, {dispatch}) => {
-        try {
-            const newCar = await carService.update(data)
-            dispatch(updateCar({data: newCar}))
-        }catch (e){
-
-        }
-    }
-)
 
 //видалення карів з сервера
 export const deleteOneCar = createAsyncThunk(
@@ -55,13 +53,18 @@ export const deleteOneCar = createAsyncThunk(
     }
 )
 
+//обновлення
+export const updateCarById = createAsyncThunk(
+    'carSlice/updateCarById',
+    async ({id, car}, {dispatch}) =>  {
+        const newCar = await carService.update(id, car);
+        dispatch(updateCar({car: newCar}))
+    }
+)
+
 const carSlice = createSlice({
     name: 'carSlice',
-    initialState:{
-        cars: [],
-        status: null,
-        error: null
-    },
+    initialState,
     reducers:{
         //пушимо в масив id та дані з форми, які ми визначили як data
         addCar:(state, action) => {
@@ -71,12 +74,17 @@ const carSlice = createSlice({
         deleteCar:(state, action) => {
             state.cars = state.cars.filter(car => car.id !== action.payload.id)
         },
-        updateCar: (state, action) => {
-            state.cars.push(action.payload.data)
+        updateToCar:(state,action) => {
+            state.carUpdate = action.payload.car
+        },
+        updateCar:(state, action) => {
+            const index = state.cars.findIndex(car => car.id === action.payload.car.id);
+            state.cars[index] = action.payload.car
+            state.carUpdate = {}
         }
     },
     extraReducers:{
-        [getAllCars.pending]:(state, action) => {
+        [getAllCars.pending]:(state) => {
             state.status = 'pending'
             state.error = null
         },
@@ -92,5 +100,5 @@ const carSlice = createSlice({
 })
 const carReducer = carSlice.reducer
 
-export const {addCar, deleteCar} = carSlice.actions;
+export const {addCar, deleteCar, updateToCar, updateCar} = carSlice.actions;
 export default carReducer

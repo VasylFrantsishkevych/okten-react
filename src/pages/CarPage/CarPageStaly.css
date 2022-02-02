@@ -1,0 +1,8 @@
+.page__car_name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+    background: #a0ced0;
+    margin-top: 0;
+}

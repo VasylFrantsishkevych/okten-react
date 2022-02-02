@@ -1,0 +1,23 @@
+.comment__card {
+    box-shadow: 0 0 5px 0 cadetblue;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 23%;
+}
+.comment__card_id {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+}
+.comment__card_id h3 {
+    margin: 5px 0;
+}
+.comment__card h4 {
+    margin: 5px 0;
+}
+.comment__card h5{
+    margin: 5px 0;
+}
+.comment__card p {
+    text-align: justify;
+}

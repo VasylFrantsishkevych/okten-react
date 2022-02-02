@@ -1,0 +1,10 @@
+.car {
+    box-shadow: 0 0 5px 0 cadetblue;
+    width: 200px;
+    padding: 8px;
+}
+.button {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
