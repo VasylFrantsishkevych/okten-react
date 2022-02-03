@@ -35,7 +35,7 @@ const toDoSlice = createSlice({
         countAllDec: (state) => {
             state.count1 = state.count1 - 1
         },
-        countCompletedDec: (state,) => {
+        countCompletedDec: (state) => {
             state.count2 = state.count2 - 1
         }
     }
