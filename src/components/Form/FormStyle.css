@@ -1,5 +1,5 @@
 .form {
-    display: flex;
+    text-align: center;
     justify-content: center;
     border-bottom: 2px solid lightgray;
     padding: 10px;
