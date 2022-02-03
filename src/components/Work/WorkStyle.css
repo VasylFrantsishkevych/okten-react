@@ -1,0 +1,9 @@
+.work {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin: 10px;
+}
+.change {
+    text-decoration: line-through;
+}
