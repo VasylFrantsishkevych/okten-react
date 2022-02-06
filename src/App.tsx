@@ -1,9 +1,13 @@
-import React from 'react';
+import {FC} from "react";
 
-const App = () => {
+import {Cars, Form} from "./components";
+
+
+const App:FC = () => {
     return (
         <div>
-          
+            <Form/>
+            <Cars/>
         </div>
     );
 };
