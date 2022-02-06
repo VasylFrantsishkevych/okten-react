@@ -1,0 +1,10 @@
+.users {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    row-gap: 15px;
+}
+.users__title {
+    text-align: center;
+}
