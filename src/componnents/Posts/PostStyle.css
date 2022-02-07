@@ -1,0 +1,10 @@
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    row-gap: 25px;
+}
+.posts_title {
+    text-align: center;
+}
