@@ -29,6 +29,14 @@ export const addNewCar = createAsyncThunk<void,ICar>(
     }
 )
 
+export const deleteCarApp = createAsyncThunk<void, ICar>(
+    'carSlice/deleteCarApp',
+        async (id, {dispatch}) => {
+        await  carService.deleteCar(id);
+        dispatch(deleteToCar(id))
+        }
+)
+
 const carSlice = createSlice({
     name: 'carSlice',
     initialState,
@@ -38,6 +46,9 @@ const carSlice = createSlice({
         },
         addCar: (state, action:PayloadAction<{car: ICar}>) => {
             state.cars.push(action.payload.car)
+        },
+        deleteToCar: (state, action:PayloadAction<ICar>) => {
+            state.cars = state.cars.filter(car => car.id === action.payload.id)
         }
     }
 })
@@ -45,4 +56,4 @@ const carSlice = createSlice({
 const carReducer = carSlice.reducer;
 
 export default carReducer;
-export const {getCars, addCar} = carSlice.actions;
+export const {getCars, addCar, deleteToCar} = carSlice.actions;

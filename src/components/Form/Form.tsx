@@ -4,6 +4,7 @@ import {ICar} from "../../interfaces";
 import {useAppDispatch} from "../../hooks";
 import {addNewCar} from "../../store";
 
+import './FormStyle.css';
 
 const Form:FC = () => {
     const {handleSubmit, register, reset, setValue} = useForm<ICar>();
@@ -14,7 +15,7 @@ const Form:FC = () => {
         reset()
     }
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(submit)} className={'form'}>
             <input type="text" placeholder={'model'} {...register('model')}/>
             <input type="text" placeholder={'price'} {...register('price', {valueAsNumber:true})}/>
             <input type="text" placeholder={'year'} {...register('year', {valueAsNumber:true})}/>

@@ -1,0 +1,10 @@
+.cars__wrap {
+    width: 100%;
+}
+.cars {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
