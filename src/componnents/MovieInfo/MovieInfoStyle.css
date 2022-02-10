@@ -1,0 +1,40 @@
+.movie-info__card {
+    width: 48%;
+    box-sizing: border-box;
+    box-shadow: 0 0 4px 0 #97ce97;
+    padding: 0 7px ;
+    border-radius: 5px;
+}
+.movie-info__card_description {
+    display: flex;
+    column-gap: 8px;
+}
+.movie-info__card_title {
+    background-color: #257945;
+    display: flex;
+    border-bottom: 1px solid #e7e7e7;
+    margin: 0 -7px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 25px;
+}
+.movie-info__card_title a {
+    text-decoration: none;
+
+}
+.movie-info__card_title h2:hover {
+    color: yellow;
+}
+.movie-info__card_title h2 {
+    margin: 0;
+    height: 30px;
+    color: lightgray;
+    font-size: 21px;
+    font-weight: normal;
+}
+.movie-info__card_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
