@@ -7,7 +7,7 @@ import {StarRating} from "../StarsRating";
 
 
 const MovieInfo = ({movie}) => {
-    const {poster_path, id, original_title, release_date, vote_average, vote_count, genresList} = movie;
+    const {poster_path, id, original_title, release_date, vote_average, vote_count} = movie;
 
     return (
         <div className={'movie-info__card'}>
@@ -21,10 +21,6 @@ const MovieInfo = ({movie}) => {
                 <div className={'movie-info__card_text'}>
                     <div>
                         <h4>{original_title}</h4>
-                        <p><strong>Genre:</strong>
-                            {genresList.map(({id, name}, i) =>
-                                <span key={id}> {name}{i < genresList.length - 1 && ','} </span>)}
-                        </p>
                         <h5>Data: {release_date}</h5>
                     </div>
                     <div>
