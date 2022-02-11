@@ -4,5 +4,7 @@ export * from  './MovieInfo/MovieInfo';
 export * from './MoviesListCard/MoviesListCard';
 export * from './MoviesListCard/ProductionCompanies/ProductionCompanies';
 export * from './StarsRating/StarRating';
-export * from './Paginator/Paginator';
+export * from './Paginator/PaginatorMovies/PaginatorMovies';
 export * from './CreatePages/CreatePages';
+export * from './Genre/Genre';
+export * from './Paginator/PaginatorGenres/PaginatorGenres';

@@ -24,8 +24,8 @@ export const getAllMovies = createAsyncThunk(
     async (page, {rejectWithValue}) => {
         try {
             return await movieService.getAll(page)
-        }catch (error) {
-            rejectWithValue(error.message)
+        }catch (e) {
+            return rejectWithValue(e.message)
         }
     }
 )
@@ -67,8 +67,8 @@ export const getMoviesById = createAsyncThunk(
             const data = await movieService.getById(id);
             return [data]
 
-        }catch (error){
-            rejectWithValue(error.message)
+        }catch (e){
+            return rejectWithValue(e.message)
         }
     }
 )

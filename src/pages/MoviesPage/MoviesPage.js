@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
 
 import './MoviesPageStyle.css';
-import {MovieInfo, Paginator} from "../../componnents";
+import {MovieInfo, PaginatorMovies} from "../../componnents";
 import {getAllMovies} from "../../store";
 
 const MoviesPage = () => {
@@ -28,7 +28,7 @@ const MoviesPage = () => {
                 {error && <h2>{error}</h2>}
                 {movies.map(movie => <MovieInfo key={movie.id} movie={movie}/>)}
             </div>
-            <Paginator/>
+            <PaginatorMovies/>
         </div>
     );
 };

@@ -2,10 +2,10 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import {Link, useSearchParams} from "react-router-dom";
 
-import './PaginatorStyle.css';
-import {createPages} from "../CreatePages/CreatePages";
+import '../PaginatorStyle.css';
+import {createPages} from "../../CreatePages/CreatePages";
 
-const Paginator = () => {
+const PaginatorMovies = () => {
     const {currentPage, totalPages} = useSelector(state => state['movieReducer']);
     const [params] = useSearchParams();
     const pages = [];
@@ -24,4 +24,4 @@ const Paginator = () => {
     );
 };
 
-export {Paginator};
+export {PaginatorMovies};
