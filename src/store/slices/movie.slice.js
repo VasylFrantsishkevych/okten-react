@@ -11,54 +11,16 @@ const initialState = {
     totalPages: 0,
 }
 
-// export const getAllMovies = createAsyncThunk(
-//     'movieSlice/getAllMovies',
-//     async (_, {dispatch}) => {
-//         const {results} = await movieService.getAll();
-//         dispatch(getMovies(results))
-//     }
-// )
-//
 export const getAllMovies = createAsyncThunk(
     'movieSlice/getAllMovies',
-    async (page, {rejectWithValue}) => {
+    async ({id, page}, {rejectWithValue}) => {
         try {
-            return await movieService.getAll(page)
+            return await movieService.getAll(id, page)
         }catch (e) {
             return rejectWithValue(e.message)
         }
     }
 )
- // const getAllMovies = async () => {
- //        try {
- //            return await movieService.getAll();
- //
- //        }catch (e) {
- //            console.log(e)
- //        }
- //    }
-//
-// export const getMoviesGenres = createAsyncThunk(
-//     'movieSlice/getMovieData',
-//     async (_, {rejectWithValue}) => {
-//         const requests = [await getAllMovies(),  await getAllGenres()];
-//         try {
-//             const [movies, genres] = await Promise.all(requests);
-//             const {page, results, total_pages, total_results} = movies;
-//
-//             return results.map((movie) => {
-//                 const {genre_ids} = movie;
-//                 const genresList = genre_ids.map(genreId => genres.find(value => value.id === genreId))
-//                 return {
-//                     ...movie,
-//                     genresList,
-//                 }
-//             })
-//         }catch (error){
-//             rejectWithValue(error.messages)
-//         }
-//     }
-// )
 
 export const getMoviesById = createAsyncThunk(
     'movieSlice/getMoviesById',
@@ -79,18 +41,6 @@ const movieSlice = createSlice({
     reducers: {
     },
     extraReducers: {
-        // [getMoviesGenres.pending]: (state) => {
-        //     state.status = 'pending'
-        //     state.error = null
-        // },
-        // [getMoviesGenres.fulfilled]: (state, action) => {
-        //     state.status = 'fulfilled'
-        //     state.movies = action.payload
-        // },
-        // [getMoviesGenres.rejected]: (state, action) => {
-        //     state.status = 'rejected'
-        //     state.error = action.payload
-        // },
         [getAllMovies.pending]: (state) => {
             state.status = 'pending'
             state.error = null

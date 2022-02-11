@@ -2,8 +2,6 @@ import './MoviesListCardStyle.css';
 import {StarRating} from "../StarsRating";
 import {ProductionCompanies} from "./ProductionCompanies";
 
-
-
 const MoviesListCard = ({movie}) => {
     const {budget, genres, homepage, original_title, overview, production_companies:companies, release_date,
         runtime, vote_average, vote_count, poster_path, popularity} = movie;

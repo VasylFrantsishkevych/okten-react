@@ -1,15 +1,16 @@
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
+
 import {getMoviesById} from "../../store";
 import {MoviesListCard} from "../../componnents";
-
 
 const MoviesListPage = () => {
     const {id} = useParams();
     const {movieId, status} = useSelector(state => state['movieReducer']);
-    const statusLoading = status === 'pending';
     const dispatch = useDispatch();
+
+    const statusLoading = status === 'pending';
 
     useEffect(() => {
         dispatch(getMoviesById(id))
