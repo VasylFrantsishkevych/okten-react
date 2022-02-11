@@ -1,6 +1,6 @@
 import './MoviesListCardStyle.css';
-import {StarRating} from "../StarsRating";
 import {ProductionCompanies} from "./ProductionCompanies";
+import {StarsRating} from "../StarsRating/StarsRating";
 
 const MoviesListCard = ({movie}) => {
     const {budget, genres, homepage, original_title, overview, production_companies:companies, release_date,
@@ -31,7 +31,7 @@ const MoviesListCard = ({movie}) => {
                         <div >
                             <div className={'movie-details__card_rating'}>
                                 <span>Rate the movie:</span>
-                                {<StarRating/>}
+                                <StarsRating/>
                             </div>
                             <div>
                                 <div className={'movie-details__card_vote'}>

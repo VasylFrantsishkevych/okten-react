@@ -7,7 +7,6 @@ import {createPages} from "../CreatePages/CreatePages";
 
 const Paginator = () => {
     const {currentPage, totalPages} = useSelector(state => state['movieReducer']);
-    console.log(currentPage, totalPages)
     const [params] = useSearchParams();
     const pages = [];
 

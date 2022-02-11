@@ -11,6 +11,7 @@ const App = () => {
         <div>
             <Routes>
                 <Route path={'/'} element={<Layout/>}>
+                    <Route index element={<MoviesPage/>}/>
                     <Route path={'discover/movie'} element={<MoviesPage/>}/>
                     <Route path={'movie/:id'} element={<MoviesListPage/>}/>
                     <Route path={'discover/movie&language=en-US&with_genres=:id'} element={<MoviesPage/>}/>
